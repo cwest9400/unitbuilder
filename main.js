@@ -28,9 +28,8 @@ function buy(materialIndex, num) {
     cash = cash - material.price * num;
     material.quantity = material.quantity + num
     console.log(`new ${material.name} qty: ${material.quantity}`)
-    
-    
 }
-console.log(`cash: $${cash}`)
-buy(0,10)
-console.log(`cash: $${cash}`)
+// console.log(`cash: $${cash}`)
+// buy(0,10)
+// console.log(`cash: $${cash}`)
+
