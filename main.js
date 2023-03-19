@@ -1,18 +1,7 @@
-let cash = 2
+import { buy, cash } from './buy.js';
+import materials from './materials.js';
 
-let materials = [
-    wood = {
-        name: "wood",
-        quantity: 10,
-        price: 2.00,
-    },
-    nail = {
-        name: "nail",
-        quantity: 75,
-        price: .20,
-    },
 
-];
 
 
 function buy(materialIndex, num) {
