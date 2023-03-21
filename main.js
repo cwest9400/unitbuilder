@@ -52,6 +52,7 @@ let bom = [
     },
     {
         name: "coffee table",
+        fgi: true,
         materials: [
             {
                 name: "wood",
