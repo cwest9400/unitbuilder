@@ -45,6 +45,8 @@ let bom = [
     {
         name: "coaster set",
         fgi: true,
+        subComponent: false,
+        isMaterial: false,
         materials: [
             {
                 name: "wood",
@@ -55,6 +57,8 @@ let bom = [
     {
         name: "coffee table",
         fgi: true,
+        subComponent: false,
+        isMaterial: false,
         materials: [
             {
                 name: "wood",
