@@ -134,8 +134,12 @@ console.table(fgi)
 
 function sell(fgiIndex, num) {
     //find product to sell in fgi array
+    let productToSell = fgi.find((item) => item.product == fgi[fgiIndex].name)
     //if product doesnt exist or qty is less than or equal to 0
+    if (!productToSell || productToSell.qoh < num) {
         //exit function with error message
+        console.log(``)
+    }
     //if it exists and qty is greater than 0
         //subtract qty from fgi array qty
         //add price from product in fgi to cash variable
