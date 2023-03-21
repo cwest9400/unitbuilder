@@ -71,9 +71,22 @@ function buy(materialIndex, num) {
     material.quantity = material.quantity + num
     console.log(`new ${material.name} qty: ${material.quantity}`)
 }
-console.log(`cash: $${cash}`)
-buy(0, 50)
-console.log(`cash: $${cash}`)
+// console.log(`cash: $${cash}`)
+// buy(0, 50)
+// console.log(`cash: $${cash}`)
 
+console.table(bom)
+console.table(bom[1].materials)
+console.table(bom[1].materials[0])
 
+function build(bomIndex, num) {
+    let bom = bom[bomIndex]
+    let reqMaterials = bom.materials
+    //for each material in bom.materials, subtract qty from materials array if it exists
+    //if the material doesnt exist in materials array or the quantity is less than 0, print an error message and return to exit function
+    
+    
+}
+
+// build(0,1)
 
