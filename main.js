@@ -132,3 +132,7 @@ console.table(fgi)
 build(1,1)
 console.table(fgi)
 
+function sell(fgiIndex, num) {
+    
+}
+
