@@ -23,7 +23,6 @@ let materials = [
         price: 0.45,
         uom: "pieces",
     },
-    ,
     {
         name: "screw",
         quantity: 20,
@@ -84,23 +83,31 @@ console.table(bom[1].materials)
 console.table(bom[1].materials[0])
 
 function build(bomIndex, num) {
-    let bom = bom[bomIndex]
-    let reqMaterials = bom.materials
+    let bomToBuild = bom[bomIndex]
+    let reqMaterials = bomToBuild.materials
     let hasEnoughMaterials = true
-    //check if there is enough qty of each required material
+    
     for (let i = 0; i < reqMaterials.length; i++) {
         let material = reqMaterials[i];
-        let availableMaterial = materials.find(m => m.name === material.name);
-
+        let availableMaterial = materials.find(m => m.name == material.name);
+        
+        //check if there is enough qty of each required material
         if(!availableMaterial || availableMaterial.quantity < material.qty * num) {
             hasEnoughMaterials = false;
-            console.log(`Not enough ${material.name} to build ${bom.name} x${num}`)
+            console.log(`Not enough ${material.name} to build ${bomToBuild.name} x${num}`)
+            break
+        } else {
+            //if there is enough material, update the materials array with the used materials
+            availableMaterial.quantity -= material.qty * num;
         }
     }
-    //if the material doesnt exist in materials array or the quantity is less than 0, print an error message and return to exit function
+
+    if (hasEnoughMaterials) {
+        console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
+    }
     
     
 }
 
-// build(0,1)
+build(1,1)
 
