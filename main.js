@@ -5,8 +5,8 @@ let fgi = [
         price: 19.99,
     },
     {
-        Product: "coaster set",
-        price: 19.99,
+        Product: "coffee table",
+        price: 99.99,
     },
     
 ]
@@ -42,6 +42,7 @@ let materials = [
 let bom = [
     {
         name: "coaster set",
+        fgi: true,
         materials: [
             {
                 name: "wood",
