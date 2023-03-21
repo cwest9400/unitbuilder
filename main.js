@@ -1,4 +1,4 @@
-
+const displayCash = document.querySelector('#cash')
 
 
 
