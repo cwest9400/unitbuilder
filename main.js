@@ -1,4 +1,8 @@
 let cash = 100
+let fgi = [
+    
+]
+
 
 let materials = [
     {
@@ -82,7 +86,17 @@ console.table(bom[1].materials[0])
 function build(bomIndex, num) {
     let bom = bom[bomIndex]
     let reqMaterials = bom.materials
-    //for each material in bom.materials, subtract qty from materials array if it exists
+    let hasEnoughMaterials = true
+    //check if there is enough qty of each required material
+    for (let i = 0; i < reqMaterials.length; i++) {
+        let material = reqMaterials[i];
+        let availableMaterial = materials.find(m => m.name === material.name);
+
+        if(!availableMaterial || availableMaterial.quantity < material.qty * num) {
+            hasEnoughMaterials = false;
+            console.log(`Not enough ${material.name} to build ${bom.name} x${num}`)
+        }
+    }
     //if the material doesnt exist in materials array or the quantity is less than 0, print an error message and return to exit function
     
     
