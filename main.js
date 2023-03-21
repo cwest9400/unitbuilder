@@ -120,6 +120,9 @@ function build(bomIndex, num) {
 
     if (hasEnoughMaterials) {
         console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
+
+        //update fgi array with the successfully built items
+        let productToUpdate = fgi.find((item) => item.product == bomToBuild.name);
     }
 }
 
