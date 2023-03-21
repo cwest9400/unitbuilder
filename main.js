@@ -78,9 +78,9 @@ function buy(materialIndex, num) {
 // buy(0, 50)
 // console.log(`cash: $${cash}`)
 
-console.table(bom)
-console.table(bom[1].materials)
-console.table(bom[1].materials[0])
+// console.table(bom)
+// console.table(bom[1].materials)
+// console.table(bom[1].materials[0])
 
 function build(bomIndex, num) {
     let bomToBuild = bom[bomIndex]
@@ -109,5 +109,5 @@ function build(bomIndex, num) {
     
 }
 
-build(1,1)
+build(1,2)
 
