@@ -1,4 +1,8 @@
 const cashElement = document.querySelector('#cash')
+const woodElement = document.querySelector('#wood')
+const nailElement = document.querySelector('#nail')
+const screwElement = document.querySelector('#screw')
+const bracketElement = document.querySelector('#bracket')
 
 
 
