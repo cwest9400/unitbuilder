@@ -1,12 +1,12 @@
 let cash = 100
 let fgi = [
     {
-        Product: "coaster set",
+        product: "coaster set",
         qoh: 0,
         price: 19.99,
     },
     {
-        Product: "coffee table",
+        product: "coffee table",
         qoh: 0,
         price: 99.99,
     },
@@ -123,8 +123,12 @@ function build(bomIndex, num) {
 
         //update fgi array with the successfully built items
         let productToUpdate = fgi.find((item) => item.product == bomToBuild.name);
+        if (productToUpdate) {
+            productToUpdate.qoh += num
+        }
     }
 }
-
-build(1,2)
+console.table(fgi)
+build(1,1)
+console.table(fgi)
 
