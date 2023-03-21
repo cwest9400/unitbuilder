@@ -2,6 +2,7 @@ let cash = 100
 let fgi = [
     {
         Product: "coaster set",
+        qoh: 0,
         price: 19.99,
     },
     {
