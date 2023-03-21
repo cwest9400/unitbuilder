@@ -128,20 +128,29 @@ function build(bomIndex, num) {
         }
     }
 }
-console.table(fgi)
+
 build(1,1)
 console.table(fgi)
-
+console.log(cash)
 function sell(fgiIndex, num) {
     //find product to sell in fgi array
-    let productToSell = fgi.find((item) => item.product == fgi[fgiIndex].name)
+    let productToSell = fgi.find((item) => item.product == fgi[fgiIndex].product)
     //if product doesnt exist or qty is less than or equal to 0
-    if (!productToSell || productToSell.qoh < num) {
+    if(!productToSell || productToSell.qoh < num) {
         //exit function with error message
-        console.log(``)
+        console.log(`Quantity on hand of ${productToSell.product} is insufficient for this order`)
+        
+        //if it exists and qty is greater than 0
+    } else {
+
+            //subtract qty from fgi array qty
+        fgi[fgiIndex].qoh -= num
+            //add price from product in fgi to cash variable
+        cash += productToSell.price * num
+        console.log(`x${num} ${productToSell.product} successfully removed from finished goods inventory (sold)`)
     }
-    //if it exists and qty is greater than 0
-        //subtract qty from fgi array qty
-        //add price from product in fgi to cash variable
 }
 
+sell(1,2)
+console.table(fgi)
+console.log(cash)
