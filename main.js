@@ -7,6 +7,7 @@ let fgi = [
     },
     {
         Product: "coffee table",
+        qoh: 0,
         price: 99.99,
     },
     
