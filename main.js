@@ -1,3 +1,7 @@
+
+
+
+
 let cash = 100
 let fgi = [
     {
