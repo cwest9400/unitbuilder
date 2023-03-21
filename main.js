@@ -17,25 +17,25 @@ let fgi = [
 let materials = [
     {
         name: "wood",
-        quantity: 10,
+        quantity: 999,
         price: 2.00,
         uom: "pieces",
     },
     {
         name: "nail",
-        quantity: 75,
+        quantity: 999,
         price: 0.20,
         uom: "pieces",
     },
     {
         name: "bracket",
-        quantity: 4,
+        quantity: 999,
         price: 0.45,
         uom: "pieces",
     },
     {
         name: "screw",
-        quantity: 20,
+        quantity: 999,
         price: 0.37,
         uom: "pieces",
     },
