@@ -2,17 +2,17 @@ const displayCash = document.querySelector('#cash')
 
 
 
-let cash = 100
+let cash = 000100
 let fgi = [
     {
         product: "coaster set",
         qoh: 0,
-        price: 19.99,
+        price: 20,
     },
     {
         product: "coffee table",
         qoh: 0,
-        price: 99.99,
+        price: 100,
     },
     
 ]
@@ -22,25 +22,25 @@ let materials = [
     {
         name: "wood",
         quantity: 999,
-        price: 2.00,
+        price: 10.00,
         uom: "pieces",
     },
     {
         name: "nail",
         quantity: 999,
-        price: 0.20,
+        price: 1.00,
         uom: "pieces",
     },
     {
         name: "bracket",
         quantity: 999,
-        price: 0.45,
+        price: 2.00,
         uom: "pieces",
     },
     {
         name: "screw",
         quantity: 999,
-        price: 0.37,
+        price: 1.00,
         uom: "pieces",
     },
 ];
