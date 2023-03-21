@@ -133,6 +133,11 @@ build(1,1)
 console.table(fgi)
 
 function sell(fgiIndex, num) {
-    
+    //find product to sell in fgi array
+    //if product doesnt exist or qty is less than or equal to 0
+        //exit function with error message
+    //if it exists and qty is greater than 0
+        //subtract qty from fgi array qty
+        //add price from product in fgi to cash variable
 }
 
