@@ -1,8 +1,10 @@
-const displayCash = document.querySelector('#cash')
+const cashElement = document.querySelector('#cash')
 
 
 
 let cash = 000100
+cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`
+
 let fgi = [
     {
         product: "coaster set",
