@@ -1,5 +1,13 @@
 let cash = 100
 let fgi = [
+    {
+        Product: "coaster set",
+        price: 19.99,
+    },
+    {
+        Product: "coaster set",
+        price: 19.99,
+    },
     
 ]
 
@@ -105,8 +113,6 @@ function build(bomIndex, num) {
     if (hasEnoughMaterials) {
         console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
     }
-    
-    
 }
 
 build(1,2)
