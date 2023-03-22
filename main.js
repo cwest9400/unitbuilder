@@ -145,9 +145,10 @@ function build(bomIndex, num) {
     }
 }
 
-build(1,1)
-console.table(fgi)
-console.log(cash)
+// build(1,1)
+// console.table(fgi)
+// console.log(cash)
+
 function sell(fgiIndex, num) {
     //find product to sell in fgi array
     let productToSell = fgi.find((item) => item.product == fgi[fgiIndex].product)
@@ -167,9 +168,9 @@ function sell(fgiIndex, num) {
     }
 }
 
-sell(1,2)
-console.table(fgi)
-console.log(cash)
+// sell(1,2)
+// console.table(fgi)
+// console.log(cash)
 
 
 //modify html for resources, materials and inventory
@@ -188,7 +189,7 @@ document.getElementById("actionBuy").addEventListener("click", function() {
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
     //loop through materials
-    secondaryMenuDiv.classList.add("secondary-menu");
+    secondaryMenuDiv.classList.add("secondaryMenu");
     for (let i = 0; i < materials.length; i++) {
         let material = materials[i];
 
