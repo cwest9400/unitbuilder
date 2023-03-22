@@ -34,25 +34,25 @@ let materials = [
         name: "wood",
         quantity: 050,
         price: 10.00,
-        uom: "pieces",
+        uom: "piece",
     },
     {
         name: "nail",
         quantity: 050,
         price: 1.00,
-        uom: "pieces",
+        uom: "piece",
     },
     {
         name: "bracket",
         quantity: 050,
         price: 2.00,
-        uom: "pieces",
+        uom: "piece",
     },
     {
         name: "screw",
         quantity: 050,
         price: 1.00,
-        uom: "pieces",
+        uom: "piece",
     },
 ];
 
@@ -195,7 +195,8 @@ document.getElementById("actionBuy").addEventListener("click", function() {
 
         //create button for each material
         let materialButton = document.createElement("button");
-        materialButton.textContent = `Buy ${material.name} (${material.price} per ${material.uom})`;
+        materialButton.classList.add("secondaryMenuButton")
+        materialButton.textContent = `${material.name} ($${material.price} per ${material.uom})`;
 
         //eventlistener to the material button to call buy() function
         materialButton.addEventListener("click", function() {
