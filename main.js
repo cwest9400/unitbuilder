@@ -7,6 +7,8 @@ const bracketElement = document.querySelector('#bracket')
 //inventory selectors
 const coastersetElement = document.querySelector('#coasterset')
 const coffeetableElement = document.querySelector('#coffeetable')
+//buy button selector
+
 
 
 
@@ -30,25 +32,25 @@ let fgi = [
 let materials = [
     {
         name: "wood",
-        quantity: 999,
+        quantity: 050,
         price: 10.00,
         uom: "pieces",
     },
     {
         name: "nail",
-        quantity: 999,
+        quantity: 050,
         price: 1.00,
         uom: "pieces",
     },
     {
         name: "bracket",
-        quantity: 999,
+        quantity: 050,
         price: 2.00,
         uom: "pieces",
     },
     {
         name: "screw",
-        quantity: 999,
+        quantity: 050,
         price: 1.00,
         uom: "pieces",
     },
@@ -180,3 +182,16 @@ screwElement.textContent = `screw: ${materials[3].quantity.toString().padStart(3
 //inventory counts
 coastersetElement.textContent = `Coaster Set: ${fgi[0].qoh.toString().padStart(3, '0')}`
 coffeetableElement.textContent = `Coffee Table: ${fgi[1].qoh.toString().padStart(3, '0')}`
+
+//buy material button listeners
+document.getElementById("actionBuy").addEventListener("click", function()) {
+    //create secondary menu div
+    let secondaryMenuDiv = document.createElement("div");
+    //loop through materials
+    secondaryMenuDiv.classList.add("secondary-menu");
+    for (let i = 0; i < materials.length; i++) {
+        let material = materials[i];
+
+        //create button for 
+    }
+}
