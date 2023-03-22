@@ -70,12 +70,12 @@ body {
   gap: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .actions {
   padding: 8px;
-
+  text-align: left;
   border: solid 1px #424542;
   box-shadow: 1px 1px #e7dfe7, -1px -1px #e7dfe7, 1px -1px #e7dfe7,
     -1px 1px #e7dfe7, 0 -2px #9c9a9c, -2px 0 #7b757b, 0 2px #424542;
@@ -189,7 +189,7 @@ body {
 
 .secondaryMenuButton {
     padding: 8px;
-
+text-align: left;
     border: solid 1px #424542;
     box-shadow: 1px 1px #e7dfe7, -1px -1px #e7dfe7, 1px -1px #e7dfe7,
       -1px 1px #e7dfe7, 0 -2px #9c9a9c, -2px 0 #7b757b, 0 2px #424542;
