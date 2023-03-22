@@ -184,7 +184,7 @@ coastersetElement.textContent = `Coaster Set: ${fgi[0].qoh.toString().padStart(3
 coffeetableElement.textContent = `Coffee Table: ${fgi[1].qoh.toString().padStart(3, '0')}`
 
 //buy material button listeners
-document.getElementById("actionBuy").addEventListener("click", function()) {
+document.getElementById("actionBuy").addEventListener("click", function() {
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
     //loop through materials
@@ -192,6 +192,18 @@ document.getElementById("actionBuy").addEventListener("click", function()) {
     for (let i = 0; i < materials.length; i++) {
         let material = materials[i];
 
-        //create button for 
+        //create button for each material
+        let materialButton = document.createElement("button");
+        materialButton.textContent = `Buy ${material.name} (${material.price} per ${material.uom})`;
+
+        //eventlistener to the material button to call buy() function
+        materialButton.addEventListener("click", function() {
+            buy(i,1);
+        });
+        //add the material button to the secondary menu div
+        secondaryMenuDiv.appendChild(materialButton);
     }
-}
+    //add the secondary menu div to the dashboard div
+    let dashboardDiv = document.querySelector(".dashboard");
+    dashboardDiv.appendChild(secondaryMenuDiv);
+})
