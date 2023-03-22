@@ -1,10 +1,13 @@
+//resources and material selectors
 const cashElement = document.querySelector('#cash')
 const woodElement = document.querySelector('#wood')
 const nailElement = document.querySelector('#nail')
 const screwElement = document.querySelector('#screw')
 const bracketElement = document.querySelector('#bracket')
-//add selectors for inventory
-//plug in selectors
+//inventory selectors
+const coastersetElement = document.querySelector('#coasterset')
+const coffeetableElement = document.querySelector('#coffeetable')
+
 
 
 let cash = 000100
@@ -12,12 +15,12 @@ let cash = 000100
 let fgi = [
     {
         product: "coaster set",
-        qoh: 0,
+        qoh: 1,
         price: 20,
     },
     {
         product: "coffee table",
-        qoh: 0,
+        qoh: 2,
         price: 100,
     },
     
@@ -174,4 +177,6 @@ nailElement.textContent = `nail: ${materials[1].quantity.toString().padStart(3, 
 bracketElement.textContent = `bracket: ${materials[2].quantity.toString().padStart(3, '0')}`
 screwElement.textContent = `screw: ${materials[3].quantity.toString().padStart(3, '0')}`
 
-
+//inventory counts
+coastersetElement.textContent = `Coaster Set: ${fgi[0].qoh.toString().padStart(3, '0')}`
+coffeetableElement.textContent = `Coffee Table: ${fgi[1].qoh.toString().padStart(3, '0')}`
