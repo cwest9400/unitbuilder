@@ -3,11 +3,11 @@ const woodElement = document.querySelector('#wood')
 const nailElement = document.querySelector('#nail')
 const screwElement = document.querySelector('#screw')
 const bracketElement = document.querySelector('#bracket')
-
+//add selectors for inventory
+//plug in selectors
 
 
 let cash = 000100
-cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`
 
 let fgi = [
     {
@@ -50,6 +50,7 @@ let materials = [
         uom: "pieces",
     },
 ];
+
 
 let bom = [
     {
@@ -164,3 +165,13 @@ function sell(fgiIndex, num) {
 sell(1,2)
 console.table(fgi)
 console.log(cash)
+
+
+//modify html for resources, materials and inventory
+cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`
+woodElement.textContent = `wood: ${materials[0].quantity.toString().padStart(3, '0')}`
+nailElement.textContent = `nail: ${materials[1].quantity.toString().padStart(3, '0')}`
+bracketElement.textContent = `bracket: ${materials[2].quantity.toString().padStart(3, '0')}`
+screwElement.textContent = `screw: ${materials[3].quantity.toString().padStart(3, '0')}`
+
+
