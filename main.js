@@ -176,6 +176,7 @@ coffeetableElement.textContent = `Coffee Table: ${fgi[1].qoh.toString().padStart
 
 //buy material button listeners
 document.getElementById("actionBuy").addEventListener("click", function() {
+
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
     //loop through materials
@@ -198,6 +199,16 @@ document.getElementById("actionBuy").addEventListener("click", function() {
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
     dashboardDiv.appendChild(secondaryMenuDiv);
+   
+   //add event listener to the main menu buttons to clear the secondary menu div if another main menu button is clicked
+   let mainMenuButtons = document.querySelectorAll(".actions");
+   for (let i = 0; i < mainMenuButtons.length; i++) {
+       mainMenuButtons[i].addEventListener("click", function() {
+           if (secondaryMenuDiv.parentNode === dashboardDiv) {
+               dashboardDiv.removeChild(secondaryMenuDiv);
+           }
+       })
+   }
 })
 
 //Build Product button listeners
@@ -212,16 +223,30 @@ document.getElementById("actionBuild").addEventListener("click", function() {
         //create button for each material
         let productBuildButton = document.createElement("button");
         productBuildButton.classList.add("secondaryMenuButton")
-        productBuildButton.textContent = `${product.name} - materials:${product.materials}`;
+        productBuildButton.textContent = `${product.name}`;
 
         //eventlistener to the material button to call buy() function
-        materialButton.addEventListener("click", function() {
-            buy(i,1);
+        productBuildButton.addEventListener("click", function() {
+            build(i,1);
         });
         //add the material button to the secondary menu div
-        secondaryMenuDiv.appendChild(materialButton);
+        secondaryMenuDiv.appendChild(productBuildButton);
     }
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
     dashboardDiv.appendChild(secondaryMenuDiv);
+
+    //add event listener to the main menu buttons to clear the secondary menu div if another main menu button is clicked
+   let mainMenuButtons = document.querySelectorAll(".actions");
+   for (let i = 0; i < mainMenuButtons.length; i++) {
+       mainMenuButtons[i].addEventListener("click", function() {
+           if (secondaryMenuDiv.parentNode === dashboardDiv) {
+               dashboardDiv.removeChild(secondaryMenuDiv);
+           }
+       })
+   }
+
+    
+
+
 })
