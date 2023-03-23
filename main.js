@@ -109,7 +109,7 @@ function buy(materialIndex, num) {
     //update the material qty on index page
     let qtyElement = document.querySelector(`#${material.name}`);
     qtyElement.textContent = `${material.name}: ${material.quantity.toString().padStart(3, '0')}`;
-    // woodElement.textContent = `${material.name}: ${material.quantity.toString().padStart(3, '0')}`
+    cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`
 }
 
 function build(bomIndex, num) {
