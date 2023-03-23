@@ -104,15 +104,9 @@ function buy(materialIndex, num) {
     console.log(`previous ${material.name} qty: ${material.quantity}`)
     cash = cash - material.price * num;
     material.quantity = material.quantity + num
+    
     console.log(`new ${material.name} qty: ${material.quantity}`)
 }
-// console.log(`cash: $${cash}`)
-// buy(0, 50)
-// console.log(`cash: $${cash}`)
-
-// console.table(bom)
-// console.table(bom[1].materials)
-// console.table(bom[1].materials[0])
 
 function build(bomIndex, num) {
     let bomToBuild = bom[bomIndex]
@@ -145,10 +139,6 @@ function build(bomIndex, num) {
     }
 }
 
-// build(1,1)
-// console.table(fgi)
-// console.log(cash)
-
 function sell(fgiIndex, num) {
     //find product to sell in fgi array
     let productToSell = fgi.find((item) => item.product == fgi[fgiIndex].product)
@@ -167,10 +157,6 @@ function sell(fgiIndex, num) {
         console.log(`x${num} ${productToSell.product} successfully removed from finished goods inventory (sold)`)
     }
 }
-
-// sell(1,2)
-// console.table(fgi)
-// console.log(cash)
 
 
 //modify html for resources, materials and inventory
