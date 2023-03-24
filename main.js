@@ -125,7 +125,10 @@ function build(bomIndex, num) {
             //if there is enough material, update the materials array with the used materials
             availableMaterial.quantity -= material.qty * num;
             //update the material qty on index page
-            
+            let qtyElement = document.querySelector(`#${material.name}`);
+            qtyElement.textContent = `${material.name}: ${availableMaterial.quantity.toString().padStart(3, '0')}`
+
+
             
             
 
