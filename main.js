@@ -9,9 +9,6 @@ const coastersetElement = document.querySelector('#coasterset')
 const coffeetableElement = document.querySelector('#coffeetable')
 //buy button selector
 
-
-
-
 let cash = 000100
 
 let fgi = [
@@ -25,9 +22,8 @@ let fgi = [
         qoh: 2,
         price: 100,
     },
-    
-]
 
+]
 
 let materials = [
     {
@@ -55,7 +51,6 @@ let materials = [
         uom: "piece",
     },
 ];
-
 
 let bom = [
     {
@@ -109,26 +104,31 @@ function buy(materialIndex, num) {
     //update the material qty on index page
     let qtyElement = document.querySelector(`#${material.name}`);
     qtyElement.textContent = `${material.name}: ${material.quantity.toString().padStart(3, '0')}`;
-    cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`
+    cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`;
 }
 
 function build(bomIndex, num) {
     let bomToBuild = bom[bomIndex]
     let reqMaterials = bomToBuild.materials
     let hasEnoughMaterials = true
-    
+
     for (let i = 0; i < reqMaterials.length; i++) {
         let material = reqMaterials[i];
         let availableMaterial = materials.find(m => m.name == material.name);
-        
+
         //check if there is enough qty of each required material
-        if(!availableMaterial || availableMaterial.quantity < material.qty * num) {
+        if (!availableMaterial || availableMaterial.quantity < material.qty * num) {
             hasEnoughMaterials = false;
             console.log(`Not enough ${material.name} to build ${bomToBuild.name} x${num}`)
             break
         } else {
             //if there is enough material, update the materials array with the used materials
             availableMaterial.quantity -= material.qty * num;
+            //update the material qty on index page
+            
+            
+            
+
         }
     }
 
@@ -139,6 +139,9 @@ function build(bomIndex, num) {
         let productToUpdate = fgi.find((item) => item.product == bomToBuild.name);
         if (productToUpdate) {
             productToUpdate.qoh += num
+            //update the finished product qty in inventory on index page
+            // let qtyProductElement = document.querySelector(`#${material.name}`);
+            // qtyElement.textContent = `${material.name}: ${material.quantity.toString().padStart(3, '0')}`;
         }
     }
 }
@@ -147,16 +150,16 @@ function sell(fgiIndex, num) {
     //find product to sell in fgi array
     let productToSell = fgi.find((item) => item.product == fgi[fgiIndex].product)
     //if product doesnt exist or qty is less than or equal to 0
-    if(!productToSell || productToSell.qoh < num) {
+    if (!productToSell || productToSell.qoh < num) {
         //exit function with error message
         console.log(`Quantity on hand of ${productToSell.product} is insufficient for this order`)
-        
+
         //if it exists and qty is greater than 0
     } else {
 
-            //subtract qty from fgi array qty
+        //subtract qty from fgi array qty
         fgi[fgiIndex].qoh -= num
-            //add price from product in fgi to cash variable
+        //add price from product in fgi to cash variable
         cash += productToSell.price * num
         console.log(`x${num} ${productToSell.product} successfully removed from finished goods inventory (sold)`)
     }
@@ -175,7 +178,7 @@ coastersetElement.textContent = `Coaster Set: ${fgi[0].qoh.toString().padStart(3
 coffeetableElement.textContent = `Coffee Table: ${fgi[1].qoh.toString().padStart(3, '0')}`
 
 //buy material button listeners
-document.getElementById("actionBuy").addEventListener("click", function() {
+document.getElementById("actionBuy").addEventListener("click", function () {
 
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
@@ -190,8 +193,8 @@ document.getElementById("actionBuy").addEventListener("click", function() {
         materialButton.textContent = `${material.name} ($${material.price} per ${material.uom})`;
 
         //eventlistener to the material button to call buy() function
-        materialButton.addEventListener("click", function() {
-            buy(i,1);
+        materialButton.addEventListener("click", function () {
+            buy(i, 1);
         });
         //add the material button to the secondary menu div
         secondaryMenuDiv.appendChild(materialButton);
@@ -199,20 +202,20 @@ document.getElementById("actionBuy").addEventListener("click", function() {
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
     dashboardDiv.appendChild(secondaryMenuDiv);
-   
-   //add event listener to the main menu buttons to clear the secondary menu div if another main menu button is clicked
-   let mainMenuButtons = document.querySelectorAll(".actions");
-   for (let i = 0; i < mainMenuButtons.length; i++) {
-       mainMenuButtons[i].addEventListener("click", function() {
-           if (secondaryMenuDiv.parentNode === dashboardDiv) {
-               dashboardDiv.removeChild(secondaryMenuDiv);
-           }
-       })
-   }
+
+    //add event listener to the main menu buttons to clear the secondary menu div if another main menu button is clicked
+    let mainMenuButtons = document.querySelectorAll(".actions");
+    for (let i = 0; i < mainMenuButtons.length; i++) {
+        mainMenuButtons[i].addEventListener("click", function () {
+            if (secondaryMenuDiv.parentNode === dashboardDiv) {
+                dashboardDiv.removeChild(secondaryMenuDiv);
+            }
+        })
+    }
 })
 
 //Build Product button listeners
-document.getElementById("actionBuild").addEventListener("click", function() {
+document.getElementById("actionBuild").addEventListener("click", function () {
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
     //loop through materials
@@ -226,8 +229,8 @@ document.getElementById("actionBuild").addEventListener("click", function() {
         productBuildButton.textContent = `${product.name}`;
 
         //eventlistener to the material button to call buy() function
-        productBuildButton.addEventListener("click", function() {
-            build(i,1);
+        productBuildButton.addEventListener("click", function () {
+            build(i, 1);
         });
         //add the material button to the secondary menu div
         secondaryMenuDiv.appendChild(productBuildButton);
@@ -237,16 +240,16 @@ document.getElementById("actionBuild").addEventListener("click", function() {
     dashboardDiv.appendChild(secondaryMenuDiv);
 
     //add event listener to the main menu buttons to clear the secondary menu div if another main menu button is clicked
-   let mainMenuButtons = document.querySelectorAll(".actions");
-   for (let i = 0; i < mainMenuButtons.length; i++) {
-       mainMenuButtons[i].addEventListener("click", function() {
-           if (secondaryMenuDiv.parentNode === dashboardDiv) {
-               dashboardDiv.removeChild(secondaryMenuDiv);
-           }
-       })
-   }
+    let mainMenuButtons = document.querySelectorAll(".actions");
+    for (let i = 0; i < mainMenuButtons.length; i++) {
+        mainMenuButtons[i].addEventListener("click", function () {
+            if (secondaryMenuDiv.parentNode === dashboardDiv) {
+                dashboardDiv.removeChild(secondaryMenuDiv);
+            }
+        })
+    }
 
-    
+
 
 
 })
