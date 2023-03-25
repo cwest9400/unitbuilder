@@ -13,12 +13,12 @@ let cash = 000100
 
 let fgi = [
     {
-        product: "coaster set",
+        product: "coasterset",
         qoh: 1,
         price: 20,
     },
     {
-        product: "coffee table",
+        product: "coffeetable",
         qoh: 2,
         price: 100,
     },
@@ -54,7 +54,7 @@ let materials = [
 
 let bom = [
     {
-        name: "coaster set",
+        name: "coasterset",
         fgi: true,
         subComponent: false,
         isMaterial: false,
@@ -66,7 +66,7 @@ let bom = [
         ]
     },
     {
-        name: "coffee table",
+        name: "coffeetable",
         fgi: true,
         subComponent: false,
         isMaterial: false,
@@ -143,8 +143,8 @@ function build(bomIndex, num) {
         if (productToUpdate) {
             productToUpdate.qoh += num
             //update the finished product qty in inventory on index page
-            // let qtyProductElement = document.querySelector(`#${material.name}`);
-            // qtyElement.textContent = `${material.name}: ${material.quantity.toString().padStart(3, '0')}`;
+            let qtyProductElement = document.querySelector(`#${productToUpdate.product}`);
+            qtyProductElement.textContent = `${productToUpdate.product}: ${productToUpdate.qoh.toString().padStart(3,'0')}`
         }
     }
 }
