@@ -110,7 +110,7 @@ function buy(materialIndex, num) {
 function build(bomIndex, num) {
     let bomToBuild = bom[bomIndex]
     let reqMaterials = bomToBuild.materials
-    let hasEnoughMaterials = true
+    let allMaterialsAvailable = true
 
     for (let i = 0; i < reqMaterials.length; i++) {
         let material = reqMaterials[i];
@@ -118,27 +118,27 @@ function build(bomIndex, num) {
 
         //check if there is enough qty of each required material
         if (!availableMaterial || availableMaterial.quantity < material.qty * num) {
-            hasEnoughMaterials = false;
+            allMaterialsAvailable = false;
             console.log(`Not enough ${material.name} to build ${bomToBuild.name} x${num}`)
-            break
-        } else {
-            //if there is enough material, update the materials array with the used materials
-            availableMaterial.quantity -= material.qty * num;
-            //update the material qty on index page
-            let qtyElement = document.querySelector(`#${material.name}`);
-            qtyElement.textContent = `${material.name}: ${availableMaterial.quantity.toString().padStart(3, '0')}`
+            break;
+        } 
+        // else {
+        //     //if there is enough material, update the materials array with the used materials
+        //     availableMaterial.quantity -= material.qty * num;
+        //     //update the material qty on index page
+        //     let qtyElement = document.querySelector(`#${material.name}`);
+        //     qtyElement.textContent = `${material.name}: ${availableMaterial.quantity.toString().padStart(3, '0')}`
 
-
-            
-            
-
-        }
+        // }
     }
-
-    if (hasEnoughMaterials) {
+    //if all materials are available, update the inventory and materials
+    if (allMaterialsAvailable) {
         console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
 
         //update fgi array with the successfully built items
+        for(let i = 0; i < reqMaterials.length; i++) {}
+            let material = reqMaterials[i];
+
         let productToUpdate = fgi.find((item) => item.product == bomToBuild.name);
         if (productToUpdate) {
             productToUpdate.qoh += num
