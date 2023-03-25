@@ -165,6 +165,9 @@ function sell(fgiIndex, num) {
         //add price from product in fgi to cash variable
         cash += productToSell.price * num
         console.log(`x${num} ${productToSell.product} successfully removed from finished goods inventory (sold)`)
+        //update the product inventory qty on index page
+        let qtyProductElement = document.querySelector(`#${productToUpdate.product}`);
+        qtyProductElement.textContent = ` ${productToUpdate.qoh.toString().padStart(3,'0')}`
     }
 }
 
@@ -237,6 +240,46 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         });
         //add the material button to the secondary menu div
         secondaryMenuDiv.appendChild(productBuildButton);
+    }
+    //add the secondary menu div to the dashboard div
+    let dashboardDiv = document.querySelector(".dashboard");
+    dashboardDiv.appendChild(secondaryMenuDiv);
+
+    //add event listener to the main menu buttons to clear the secondary menu div if another main menu button is clicked
+    let mainMenuButtons = document.querySelectorAll(".actions");
+    for (let i = 0; i < mainMenuButtons.length; i++) {
+        mainMenuButtons[i].addEventListener("click", function () {
+            if (secondaryMenuDiv.parentNode === dashboardDiv) {
+                dashboardDiv.removeChild(secondaryMenuDiv);
+            }
+        })
+    }
+
+
+
+
+})
+
+//Sell Product button listeners
+document.getElementById("actionSell").addEventListener("click", function () {
+    //create secondary menu div
+    let secondaryMenuDiv = document.createElement("div");
+    //loop through materials
+    secondaryMenuDiv.classList.add("secondaryMenu");
+    for (let i = 0; i < fgi.length; i++) {
+        let product = fgi[i];
+
+        //create button for each material
+        let productSellButton = document.createElement("button");
+        productSellButton.classList.add("secondaryMenuButton")
+        productSellButton.textContent = `${product.product}`;
+
+        //eventlistener to the material button to call buy() function
+        productSellButton.addEventListener("click", function () {
+            sell(i, 1);
+        });
+        //add the material button to the secondary menu div
+        secondaryMenuDiv.appendChild(productSellButton);
     }
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
