@@ -136,9 +136,15 @@ function build(bomIndex, num) {
         console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
 
         //update fgi array with the successfully built items
-        for(let i = 0; i < reqMaterials.length; i++) {}
+        for(let i = 0; i < reqMaterials.length; i++) {
             let material = reqMaterials[i];
-
+            let availableMaterial = materials.find(m => m.name == material.name);
+            availableMaterial.quantity -= material.qty * num;
+            //update the material qty on index page
+            let qtyElement = document.querySelector(`#${material.name}`);
+            qtyElement.textContent = `${material.name}: ${availableMaterial.quantity.toString().padStart(3, '0')}`
+        }
+        //update fgi array with the successfully built items
         let productToUpdate = fgi.find((item) => item.product == bomToBuild.name);
         if (productToUpdate) {
             productToUpdate.qoh += num
