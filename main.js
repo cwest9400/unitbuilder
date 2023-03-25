@@ -166,8 +166,8 @@ function sell(fgiIndex, num) {
         cash += productToSell.price * num
         console.log(`x${num} ${productToSell.product} successfully removed from finished goods inventory (sold)`)
         //update the product inventory qty on index page
-        let qtyProductElement = document.querySelector(`#${productToUpdate.product}`);
-        qtyProductElement.textContent = ` ${productToUpdate.qoh.toString().padStart(3,'0')}`
+        let qtyProductElement = document.querySelector(`#${productToSell.product}`);
+        qtyProductElement.textContent = ` ${productToSell.qoh.toString().padStart(3,'0')}`
     }
 }
 
