@@ -1,11 +1,16 @@
 -MVP-
-0 - sell button
+
 
 -bugs-
 
 1 - build product: if you shouldnt be able to build because of a short amterial, it still lets you.
 
+-message display-
+
 -extra-
 2 - botton hover & click animation
+2 - fix button names
+    - add a sku to the bom and fgi objects
+    - change how the button is mapped
 
 

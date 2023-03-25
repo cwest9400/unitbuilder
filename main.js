@@ -168,6 +168,7 @@ function sell(fgiIndex, num) {
         //update the product inventory qty on index page
         let qtyProductElement = document.querySelector(`#${productToSell.product}`);
         qtyProductElement.textContent = ` ${productToSell.qoh.toString().padStart(3,'0')}`
+        cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`;
     }
 }
 
