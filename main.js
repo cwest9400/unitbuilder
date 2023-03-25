@@ -144,7 +144,7 @@ function build(bomIndex, num) {
             productToUpdate.qoh += num
             //update the finished product qty in inventory on index page
             let qtyProductElement = document.querySelector(`#${productToUpdate.product}`);
-            qtyProductElement.textContent = `${productToUpdate.product}: ${productToUpdate.qoh.toString().padStart(3,'0')}`
+            qtyProductElement.textContent = ` ${productToUpdate.qoh.toString().padStart(3,'0')}`
         }
     }
 }
@@ -177,8 +177,8 @@ bracketElement.textContent = `bracket: ${materials[2].quantity.toString().padSta
 screwElement.textContent = `screw: ${materials[3].quantity.toString().padStart(3, '0')}`
 
 //inventory counts
-coastersetElement.textContent = `Coaster Set: ${fgi[0].qoh.toString().padStart(3, '0')}`
-coffeetableElement.textContent = `Coffee Table: ${fgi[1].qoh.toString().padStart(3, '0')}`
+coastersetElement.textContent = ` ${fgi[0].qoh.toString().padStart(3, '0')}`
+coffeetableElement.textContent = ` ${fgi[1].qoh.toString().padStart(3, '0')}`
 
 //buy material button listeners
 document.getElementById("actionBuy").addEventListener("click", function () {
