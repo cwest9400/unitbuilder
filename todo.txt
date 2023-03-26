@@ -3,14 +3,17 @@
 
 -bugs-
 
-1 - build product: if you shouldnt be able to build because of a short amterial, it still lets you.
 
--message display-
+
+- Features -
+- display messages on html page (pretty much copy the console.logs)
 
 -extra-
-2 - botton hover & click animation
-2 - fix button names
-    - add a sku to the bom and fgi objects
-    - change how the button is mapped
+
+2 - fix button names for scalability
+    - add a sku to the bom and fgi objects - map the button generation to the sku but have the button display the name.
+    - material buy button - (make it so the button is a name and the price is off to the side of the button)
+    - build product button - (make it so that the button is the name of the product and the required materials opens a secondaryMenu with the listed materials and a build button that accepts qty)
+    
 
 
