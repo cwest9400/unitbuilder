@@ -20,7 +20,7 @@ let fgi = [
     {
         product: "coffeetable",
         qoh: 2,
-        price: 100,
+        price: 200,
     },
 
 ]
