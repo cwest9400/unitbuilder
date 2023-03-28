@@ -103,9 +103,13 @@ function buy(materialIndex, num) {
     document.querySelector('.messageZone').textContent = `Added ${num} ${material.name} to inventory`
     // console.log(`new ${material.name} qty: ${material.quantity}`)
     //update the material qty on index page
-    let qtyElement = document.querySelector(`#${material.name}`);
-    qtyElement.textContent = `${material.name}: ${material.quantity.toString().padStart(3, '0')}`;
     cashElement.textContent = ` ${cash.toString().padStart(6, '0')}`;
+    let qtyElement = document.querySelector(`#${material.name}`);
+    qtyElement.textContent = ` ${material.quantity.toString().padStart(3, '0')}`;
+    qtyElement.classList.add('textFlash')
+            setTimeout(() => {
+                qtyElement.classList.remove('textFlash')
+            }, 200)
 }
 
 function build(bomIndex, num) {
@@ -123,8 +127,8 @@ function build(bomIndex, num) {
             document.querySelector('.messageZone').textContent = `Not enough ${material.name}(s) to build a ${bomToBuild.name}`
             // console.log(`Not enough ${material.name} to build ${bomToBuild.name} x${num}`)
             break;
-        } 
-        
+        }
+
     }
     //if all materials are available, update the inventory and materials
     if (allMaterialsAvailable) {
@@ -132,7 +136,7 @@ function build(bomIndex, num) {
         // console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
 
         //update fgi array with the successfully built items
-        for(let i = 0; i < reqMaterials.length; i++) {
+        for (let i = 0; i < reqMaterials.length; i++) {
             let material = reqMaterials[i];
             let availableMaterial = materials.find(m => m.name == material.name);
             availableMaterial.quantity -= material.qty * num;
@@ -146,7 +150,12 @@ function build(bomIndex, num) {
             productToUpdate.qoh += num
             //update the finished product qty in inventory on index page
             let qtyProductElement = document.querySelector(`#${productToUpdate.product}`);
-            qtyProductElement.textContent = ` ${productToUpdate.qoh.toString().padStart(3,'0')}`
+            qtyProductElement.textContent = ` ${productToUpdate.qoh.toString().padStart(3, '0')}`
+            //text glow
+            qtyProductElement.classList.add('textFlash')
+            setTimeout(() => {
+                qtyProductElement.classList.remove('textFlash')
+            }, 200)
         }
     }
 }
@@ -171,23 +180,24 @@ function sell(fgiIndex, num) {
         // console.log(`x${num} ${productToSell.product} successfully removed from finished goods inventory (sold)`)
         //update the product inventory qty on index page
         let qtyProductElement = document.querySelector(`#${productToSell.product}`);
-        qtyProductElement.textContent = ` ${productToSell.qoh.toString().padStart(3,'0')}`
+        qtyProductElement.textContent = ` ${productToSell.qoh.toString().padStart(3, '0')}`
         cashElement.textContent = ` ${cash.toString().padStart(6, '0')}`;
+        //text glow
         cashElement.classList.add('textFlash')
-        setTimeout(()=> {
+        setTimeout(() => {
             cashElement.classList.remove('textFlash')
         }, 200)
-        
+
     }
 }
 
 
 //modify html for resources, materials and inventory
 cashElement.textContent = ` ${cash.toString().padStart(6, '0')}`
-woodElement.textContent = `wood: ${materials[0].quantity.toString().padStart(3, '0')}`
-nailElement.textContent = `nail: ${materials[1].quantity.toString().padStart(3, '0')}`
-bracketElement.textContent = `bracket: ${materials[2].quantity.toString().padStart(3, '0')}`
-screwElement.textContent = `screw: ${materials[3].quantity.toString().padStart(3, '0')}`
+woodElement.textContent = ` ${materials[0].quantity.toString().padStart(3, '0')}`
+nailElement.textContent = ` ${materials[1].quantity.toString().padStart(3, '0')}`
+bracketElement.textContent = ` ${materials[2].quantity.toString().padStart(3, '0')}`
+screwElement.textContent = ` ${materials[3].quantity.toString().padStart(3, '0')}`
 
 //inventory counts
 coastersetElement.textContent = ` ${fgi[0].qoh.toString().padStart(3, '0')}`
