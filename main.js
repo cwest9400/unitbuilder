@@ -105,7 +105,7 @@ function buy(materialIndex, num) {
     //update the material qty on index page
     let qtyElement = document.querySelector(`#${material.name}`);
     qtyElement.textContent = `${material.name}: ${material.quantity.toString().padStart(3, '0')}`;
-    cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`;
+    cashElement.textContent = ` ${cash.toString().padStart(6, '0')}`;
 }
 
 function build(bomIndex, num) {
@@ -167,17 +167,23 @@ function sell(fgiIndex, num) {
         fgi[fgiIndex].qoh -= num
         //add price from product in fgi to cash variable
         cash += productToSell.price * num
-        console.log(`x${num} ${productToSell.product} successfully removed from finished goods inventory (sold)`)
+        document.querySelector('.messageZone').textContent = `x${num} ${productToSell.product} successfully sold`
+        // console.log(`x${num} ${productToSell.product} successfully removed from finished goods inventory (sold)`)
         //update the product inventory qty on index page
         let qtyProductElement = document.querySelector(`#${productToSell.product}`);
         qtyProductElement.textContent = ` ${productToSell.qoh.toString().padStart(3,'0')}`
-        cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`;
+        cashElement.textContent = ` ${cash.toString().padStart(6, '0')}`;
+        cashElement.classList.add('textFlash')
+        setTimeout(()=> {
+            cashElement.classList.remove('textFlash')
+        }, 200)
+        
     }
 }
 
 
 //modify html for resources, materials and inventory
-cashElement.textContent = `cash: ${cash.toString().padStart(6, '0')}`
+cashElement.textContent = ` ${cash.toString().padStart(6, '0')}`
 woodElement.textContent = `wood: ${materials[0].quantity.toString().padStart(3, '0')}`
 nailElement.textContent = `nail: ${materials[1].quantity.toString().padStart(3, '0')}`
 bracketElement.textContent = `bracket: ${materials[2].quantity.toString().padStart(3, '0')}`
