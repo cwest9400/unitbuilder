@@ -93,6 +93,7 @@ function buy(materialIndex, num) {
         console.log("unknown material")
         return
     } else if (material.price * num > cash) {
+        document.querySelector('.messageZone').textContent = `not enough cash to buy ${num} ${material.uom} of ${material.name}. You only have ${cash} and you need ${material.price * num}`
         console.log(`not enough cash to buy ${num} ${material.uom} of ${material.name}. You only have ${cash} and you need ${material.price * num}`)
         return
     }
