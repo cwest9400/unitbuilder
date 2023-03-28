@@ -93,15 +93,15 @@ function buy(materialIndex, num) {
         console.log("unknown material")
         return
     } else if (material.price * num > cash) {
-        document.querySelector('.messageZone').textContent = `not enough cash!`
-        console.log(`not enough cash to buy ${num} ${material.uom} of ${material.name}. You only have ${cash} and you need ${material.price * num}`)
+        document.querySelector('.messageZone').textContent = `not enough cash`
+        // console.log(`not enough cash to buy ${num} ${material.uom} of ${material.name}. You only have ${cash} and you need ${material.price * num}`)
         return
     }
-    console.log(`previous ${material.name} qty: ${material.quantity}`)
+    //console.log(`previous ${material.name} qty: ${material.quantity}`)
     cash = cash - material.price * num;
     material.quantity = material.quantity + num
-
-    console.log(`new ${material.name} qty: ${material.quantity}`)
+    document.querySelector('.messageZone').textContent = `Added ${num} ${material.name} to inventory`
+    // console.log(`new ${material.name} qty: ${material.quantity}`)
     //update the material qty on index page
     let qtyElement = document.querySelector(`#${material.name}`);
     qtyElement.textContent = `${material.name}: ${material.quantity.toString().padStart(3, '0')}`;
@@ -120,21 +120,16 @@ function build(bomIndex, num) {
         //check if there is enough qty of each required material
         if (!availableMaterial || availableMaterial.quantity < material.qty * num) {
             allMaterialsAvailable = false;
-            console.log(`Not enough ${material.name} to build ${bomToBuild.name} x${num}`)
+            document.querySelector('.messageZone').textContent = `Not enough ${material.name}(s) to build a ${bomToBuild.name}`
+            // console.log(`Not enough ${material.name} to build ${bomToBuild.name} x${num}`)
             break;
         } 
-        // else {
-        //     //if there is enough material, update the materials array with the used materials
-        //     availableMaterial.quantity -= material.qty * num;
-        //     //update the material qty on index page
-        //     let qtyElement = document.querySelector(`#${material.name}`);
-        //     qtyElement.textContent = `${material.name}: ${availableMaterial.quantity.toString().padStart(3, '0')}`
-
-        // }
+        
     }
     //if all materials are available, update the inventory and materials
     if (allMaterialsAvailable) {
-        console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
+        document.querySelector('.messageZone').textContent = `Successfully built ${num} ${bomToBuild.name}(s)`
+        // console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
 
         //update fgi array with the successfully built items
         for(let i = 0; i < reqMaterials.length; i++) {
@@ -162,6 +157,7 @@ function sell(fgiIndex, num) {
     //if product doesnt exist or qty is less than or equal to 0
     if (!productToSell || productToSell.qoh < num) {
         //exit function with error message
+        document.querySelector('.messageZone').textContent = `Quantity on hand of ${productToSell.product} is insufficient`
         console.log(`Quantity on hand of ${productToSell.product} is insufficient for this order`)
 
         //if it exists and qty is greater than 0
