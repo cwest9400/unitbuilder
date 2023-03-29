@@ -1,3 +1,6 @@
+
+
+
 //resources and material selectors
 const cashElement = document.querySelector('#cash')
 const woodElement = document.querySelector('#wood')
@@ -8,18 +11,18 @@ const bracketElement = document.querySelector('#bracket')
 const coastersetElement = document.querySelector('#coasterset')
 const coffeetableElement = document.querySelector('#coffeetable')
 //buy button selector
-
-let cash = 000100
+let notRoundedCash = new Decimal(99.999)
+let cash = notRoundedCash.toNearst(.01)
 
 let fgi = [
     {
         product: "coasterset",
-        qoh: 1,
+        qoh: 0,
         price: 20,
     },
     {
         product: "coffeetable",
-        qoh: 2,
+        qoh: 0,
         price: 200,
     },
 
@@ -28,26 +31,26 @@ let fgi = [
 let materials = [
     {
         name: "wood",
-        quantity: 050,
-        price: 10.00,
+        quantity: 000,
+        price: 3.99,
         uom: "piece",
     },
     {
         name: "nail",
-        quantity: 050,
-        price: 1.00,
+        quantity: 000,
+        price: 0.10,
         uom: "piece",
     },
     {
         name: "bracket",
-        quantity: 050,
-        price: 2.00,
+        quantity: 000,
+        price: 1.50,
         uom: "piece",
     },
     {
         name: "screw",
-        quantity: 050,
-        price: 1.00,
+        quantity: 000,
+        price: 0.77,
         uom: "piece",
     },
 ];
@@ -95,6 +98,14 @@ function buy(materialIndex, num) {
     } else if (material.price * num > cash) {
         document.querySelector('.messageZone').textContent = `not enough cash`
         // console.log(`not enough cash to buy ${num} ${material.uom} of ${material.name}. You only have ${cash} and you need ${material.price * num}`)
+        //fade out message
+        setTimeout(() => {
+            document.querySelector('.messageZone').classList.add('fadeOut');
+            setTimeout(() => {
+              document.querySelector('.messageZone').textContent = '';
+              document.querySelector('.messageZone').classList.remove('fadeOut');
+            }, 500);
+          }, 500);
         return
     }
     //console.log(`previous ${material.name} qty: ${material.quantity}`)
@@ -102,6 +113,14 @@ function buy(materialIndex, num) {
     material.quantity = material.quantity + num
     document.querySelector('.messageZone').textContent = `Added ${num} ${material.name} to inventory`
     // console.log(`new ${material.name} qty: ${material.quantity}`)
+    //fade out message
+    setTimeout(() => {
+        document.querySelector('.messageZone').classList.add('fadeOut');
+        setTimeout(() => {
+          document.querySelector('.messageZone').textContent = '';
+          document.querySelector('.messageZone').classList.remove('fadeOut');
+        }, 500);
+      }, 500);
     //update the material qty on index page
     cashElement.textContent = ` ${cash.toString().padStart(6, '0')}`;
     let qtyElement = document.querySelector(`#${material.name}`);
@@ -125,6 +144,14 @@ function build(bomIndex, num) {
         if (!availableMaterial || availableMaterial.quantity < material.qty * num) {
             allMaterialsAvailable = false;
             document.querySelector('.messageZone').textContent = `Not enough ${material.name}(s) to build a ${bomToBuild.name}`
+            //fade out message
+            setTimeout(() => {
+                document.querySelector('.messageZone').classList.add('fadeOut');
+                setTimeout(() => {
+                  document.querySelector('.messageZone').textContent = '';
+                  document.querySelector('.messageZone').classList.remove('fadeOut');
+                }, 500);
+              }, 500);
             // console.log(`Not enough ${material.name} to build ${bomToBuild.name} x${num}`)
             break;
         }
@@ -133,6 +160,14 @@ function build(bomIndex, num) {
     //if all materials are available, update the inventory and materials
     if (allMaterialsAvailable) {
         document.querySelector('.messageZone').textContent = `Successfully built ${num} ${bomToBuild.name}(s)`
+        //fade out message
+        setTimeout(() => {
+            document.querySelector('.messageZone').classList.add('fadeOut');
+            setTimeout(() => {
+              document.querySelector('.messageZone').textContent = '';
+              document.querySelector('.messageZone').classList.remove('fadeOut');
+            }, 500);
+          }, 500);
         // console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
 
         //update fgi array with the successfully built items
@@ -142,7 +177,7 @@ function build(bomIndex, num) {
             availableMaterial.quantity -= material.qty * num;
             //update the material qty on index page
             let qtyElement = document.querySelector(`#${material.name}`);
-            qtyElement.textContent = `${material.name}: ${availableMaterial.quantity.toString().padStart(3, '0')}`
+            qtyElement.textContent = ` ${availableMaterial.quantity.toString().padStart(3, '0')}`
         }
         //update fgi array with the successfully built items
         let productToUpdate = fgi.find((item) => item.product == bomToBuild.name);
@@ -167,7 +202,15 @@ function sell(fgiIndex, num) {
     if (!productToSell || productToSell.qoh < num) {
         //exit function with error message
         document.querySelector('.messageZone').textContent = `Quantity on hand of ${productToSell.product} is insufficient`
-        console.log(`Quantity on hand of ${productToSell.product} is insufficient for this order`)
+        //fade out message
+        setTimeout(() => {
+            document.querySelector('.messageZone').classList.add('fadeOut');
+            setTimeout(() => {
+              document.querySelector('.messageZone').textContent = '';
+              document.querySelector('.messageZone').classList.remove('fadeOut');
+            }, 500);
+          }, 500);
+        // console.log(`Quantity on hand of ${productToSell.product} is insufficient for this order`)
 
         //if it exists and qty is greater than 0
     } else {
@@ -178,6 +221,14 @@ function sell(fgiIndex, num) {
         cash += productToSell.price * num
         document.querySelector('.messageZone').textContent = `x${num} ${productToSell.product} successfully sold`
         // console.log(`x${num} ${productToSell.product} successfully removed from finished goods inventory (sold)`)
+        //fade out message
+        setTimeout(() => {
+            document.querySelector('.messageZone').classList.add('fadeOut');
+            setTimeout(() => {
+              document.querySelector('.messageZone').textContent = '';
+              document.querySelector('.messageZone').classList.remove('fadeOut');
+            }, 500);
+          }, 500);
         //update the product inventory qty on index page
         let qtyProductElement = document.querySelector(`#${productToSell.product}`);
         qtyProductElement.textContent = ` ${productToSell.qoh.toString().padStart(3, '0')}`
