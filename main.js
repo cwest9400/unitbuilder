@@ -11,8 +11,8 @@ const bracketElement = document.querySelector('#bracket')
 const coastersetElement = document.querySelector('#coasterset')
 const coffeetableElement = document.querySelector('#coffeetable')
 //buy button selector
-let notRoundedCash = new Decimal(99.999)
-let cash = notRoundedCash.toNearst(.01)
+
+let cash = 000000
 
 let fgi = [
     {
