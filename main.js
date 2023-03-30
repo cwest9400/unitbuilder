@@ -365,7 +365,19 @@ document.getElementById("actionBuild").addEventListener("click", function () {
             materialItem.textContent = material.name + " x" + material.quantity;
             materialsList.appendChild(materialItem);
         }
+        productInfoDiv.appendChild(materialsList);
+        
+        //create input field and build button
+        let quantityInput = document.createElement("input");
+        quantityInput.type = "number";
+        quantityInput.min = "1";
+        quantityInput.value = "1";
+        productInfoDiv.appendChild(quantityInput);
 
+        let buildButton = document.createElement("button");
+        buildButton.textContent = "Build"
+
+        
         //eventlistener to the material button to call buy() function
         productBuildButton.addEventListener("click", function () {
             build(i, 1);
