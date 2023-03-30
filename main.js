@@ -310,14 +310,12 @@ document.getElementById("actionBuy").addEventListener("click", function () {
         //append input and button to inputAndButtonDiv
         inputAndButtonDiv.appendChild(qtyInput);
         inputAndButtonDiv.appendChild(buyButton);
-    
-        //add the material name, quantity input, and buy button to the material div
-        materialDiv.appendChild(nameLabel);
-        materialDiv.appendChild(document.createTextNode(` - $${material.price} per ${material.uom}`));
-        materialDiv.appendChild(qtyInput);
-        materialDiv.appendChild(buyButton);
 
-        //add the amterial div to the secondary menu div
+        //append nameAndPriceDiv and inputAndButtonDiv to materialDiv
+        materialDiv.appendChild(nameAndPriceDiv);
+        materialDiv.appendChild(inputAndButtonDiv);
+
+        //add the material div to the secondary menu div
         secondaryMenuDiv.appendChild(materialDiv);
     }
 
