@@ -292,14 +292,14 @@ document.getElementById("actionBuy").addEventListener("click", function () {
     
         //add the material name, quantity input, and buy button to the material div
         materialDiv.appendChild(nameLabel);
-        materialDiv.appendChild(document.createTextNode(" x "));
+        materialDiv.appendChild(document.createTextNode(` - $${material.price} per ${material.uom}`));
         materialDiv.appendChild(qtyInput);
         materialDiv.appendChild(buyButton);
 
         //add the amterial div to the secondary menu div
         secondaryMenuDiv.appendChild(materialDiv);
     }
-    
+
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
     dashboardDiv.appendChild(secondaryMenuDiv);
