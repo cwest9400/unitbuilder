@@ -287,6 +287,10 @@ document.getElementById("actionBuy").addEventListener("click", function () {
         priceSpan.textContent = ` - $${material.price} per ${material.uom}`;
         priceSpan.classList.add("materialPrice");
 
+        //append name and price to nameAndPriceDiv
+        nameAndPriceDiv.appendChild(nameLabel);
+        nameAndPriceDiv.appendChild(priceSpan);
+
         //create an input field for quantity
         let qtyInput = document.createElement("input");
         qtyInput.setAttribute("type", "number");
@@ -302,6 +306,10 @@ document.getElementById("actionBuy").addEventListener("click", function () {
         buyButton.addEventListener("click", function () {
             buy(i, parseInt(qtyInput.value));
         });
+
+        //append input and button to inputAndButtonDiv
+        inputAndButtonDiv.appendChild(qtyInput);
+        inputAndButtonDiv.appendChild(buyButton);
     
         //add the material name, quantity input, and buy button to the material div
         materialDiv.appendChild(nameLabel);
