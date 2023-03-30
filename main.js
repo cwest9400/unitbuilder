@@ -376,8 +376,11 @@ document.getElementById("actionBuild").addEventListener("click", function () {
 
         let buildButton = document.createElement("button");
         buildButton.textContent = "Build"
+        buildButton.addEventListener("click", function () {
+            build(i, quantityInput.value);
+        });
+        productInfoDiv.appendChild(buildButton);
 
-        
         //eventlistener to the material button to call buy() function
         productBuildButton.addEventListener("click", function () {
             build(i, 1);
