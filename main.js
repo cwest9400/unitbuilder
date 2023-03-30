@@ -295,7 +295,11 @@ document.getElementById("actionBuy").addEventListener("click", function () {
         materialDiv.appendChild(document.createTextNode(" x "));
         materialDiv.appendChild(qtyInput);
         materialDiv.appendChild(buyButton);
+
+        //add the amterial div to the secondary menu div
+        secondaryMenuDiv.appendChild(materialDiv);
     }
+    
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
     dashboardDiv.appendChild(secondaryMenuDiv);
