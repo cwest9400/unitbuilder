@@ -269,10 +269,23 @@ document.getElementById("actionBuy").addEventListener("click", function () {
         let materialDiv = document.createElement("div");
         materialDiv.classList.add("materialDiv");
 
+        //create a div to hold name and price
+        let nameAndPriceDiv = document.createElement("div");
+        nameAndPriceDiv.classList.add("nameAndPriceDiv");
+
+        //create a div to hold the input and button
+        let inputAndButtonDiv = document.createElement("div");
+        inputAndButtonDiv.classList.add("nameAndPriceDiv");
+
         //create label for material name
         let nameLabel = document.createElement("label");
         nameLabel.textContent = material.name;
         nameLabel.classList.add("materialLabel");
+
+        //create span for material price
+        let priceSpan = document.createElement("span");
+        priceSpan.textContent = ` - $${material.price} per ${material.uom}`;
+        priceSpan.classList.add("materialPrice");
 
         //create an input field for quantity
         let qtyInput = document.createElement("input");
