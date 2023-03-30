@@ -12,7 +12,7 @@ const coastersetElement = document.querySelector('#coasterset')
 const coffeetableElement = document.querySelector('#coffeetable')
 //buy button selector
 
-let cash = 000000
+let cash = 00050
 
 let fgi = [
     {
@@ -84,7 +84,7 @@ let bom = [
             },
             {
                 name: "screw",
-                qty: 12,
+                qty: 8,
             },
         ]
     },
