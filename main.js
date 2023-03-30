@@ -259,10 +259,23 @@ document.getElementById("actionBuy").addEventListener("click", function () {
 
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
-    //loop through materials
     secondaryMenuDiv.classList.add("secondaryMenu");
+
+    //loop through materials
     for (let i = 0; i < materials.length; i++) {
         let material = materials[i];
+
+        //create div to hold each material's info
+        let materialDiv = document.createElement("div");
+        materialDiv.classList.add("materialDiv");
+
+        //create label for material name
+        let nameLabel = document.createElement("label");
+        nameLabel.textContent = material.name;
+        nameLabel.classList.add("materialLabel");
+
+        //create an input field for quantity
+        let qtyInput = document.createElement("input")
 
         //create button for each material
         let materialButton = document.createElement("button");
