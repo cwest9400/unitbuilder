@@ -23,7 +23,7 @@ let fgi = [
     {
         product: "coffeetable",
         qoh: 0,
-        price: 200,
+        price: 120,
     },
 
 ]
@@ -32,25 +32,25 @@ let materials = [
     {
         name: "wood",
         quantity: 000,
-        price: 3.99,
+        price: 6,
         uom: "piece",
     },
     {
         name: "nail",
         quantity: 000,
-        price: 0.10,
+        price: 1,
         uom: "piece",
     },
     {
         name: "bracket",
         quantity: 000,
-        price: 1.50,
+        price: 2,
         uom: "piece",
     },
     {
         name: "screw",
         quantity: 000,
-        price: 0.77,
+        price: 1,
         uom: "piece",
     },
 ];
@@ -338,15 +338,33 @@ document.getElementById("actionBuy").addEventListener("click", function () {
 document.getElementById("actionBuild").addEventListener("click", function () {
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
-    //loop through materials
     secondaryMenuDiv.classList.add("secondaryMenu");
+    
+    //loop through materials
     for (let i = 0; i < bom.length; i++) {
         let product = bom[i];
 
-        //create button for each material
-        let productBuildButton = document.createElement("button");
-        productBuildButton.classList.add("secondaryMenuButton")
-        productBuildButton.textContent = `${product.name}`;
+        //create button for each product
+        let productButton = document.createElement("button");
+        productButton.classList.add("secondaryMenuButton")
+        productButton.textContent = `${product.name}`;
+
+        //create div to display product information
+        let productInfoDiv = document.createElement("div");
+        productInfoDiv.classList.add("productInfo");
+
+        //display product name and required materials
+        let productName = document.createElement("h3");
+        productName.textContent = product.name;
+        productInfoDiv.appendChild(productName);
+
+        let materialsList = document.createElement("ul");
+        for(let j = 0; j < product.materials.length; j++) {
+            let material = product.materials[j];
+            let materialItem = document.createElement("li");
+            materialItem.textContent = material.name + " x" + material.quantity;
+            materialsList.appendChild(materialItem);
+        }
 
         //eventlistener to the material button to call buy() function
         productBuildButton.addEventListener("click", function () {
