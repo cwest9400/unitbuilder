@@ -275,19 +275,26 @@ document.getElementById("actionBuy").addEventListener("click", function () {
         nameLabel.classList.add("materialLabel");
 
         //create an input field for quantity
-        let qtyInput = document.createElement("input")
+        let qtyInput = document.createElement("input");
+        qtyInput.setAttribute("type", "number");
+        qtyInput.setAttribute("value", "1")
+        qtyInput.classList.add("qtyInput");
 
         //create button for each material
-        let materialButton = document.createElement("button");
-        materialButton.classList.add("secondaryMenuButton")
-        materialButton.textContent = `${material.name} ($${material.price} per ${material.uom})`;
+        let buyButton = document.createElement("button");
+        buyButton.classList.add("buyButton")
+        buyButton.textContent = "Buy";
 
         //eventlistener to the material button to call buy() function
-        materialButton.addEventListener("click", function () {
-            buy(i, 1);
+        buyButton.addEventListener("click", function () {
+            buy(i, parseInt(qtyInput.value));
         });
-        //add the material button to the secondary menu div
-        secondaryMenuDiv.appendChild(materialButton);
+    
+        //add the material name, quantity input, and buy button to the material div
+        materialDiv.appendChild(nameLabel);
+        materialDiv.appendChild(document.createTextNode(" x "));
+        materialDiv.appendChild(qtyInput);
+        materialDiv.appendChild(buyButton);
     }
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
