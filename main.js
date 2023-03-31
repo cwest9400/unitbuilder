@@ -344,20 +344,15 @@ document.getElementById("actionBuild").addEventListener("click", function () {
     for (let i = 0; i < bom.length; i++) {
         let product = bom[i];
 
-        //create button for each product
-        let productButton = document.createElement("button");
-        productButton.classList.add("secondaryMenuButton")
-        productButton.textContent = `${product.name}`;
-
-        //create div to display product information
-        let productInfoDiv = document.createElement("div");
-        productInfoDiv.classList.add("productInfo");
+        //create a container div for each product
+        let productContainer = document.createElement("div");
+        productContainer.classList.add("secondaryMenu Container");
 
         //display product name and required materials
-        let productName = document.createElement("h3");
-        productName.textContent = product.name;
+        let productName = document.createElement("h4");
+        productName.textContent = `${product.name}`;
         productInfoDiv.appendChild(productName);
-
+        //material list
         let materialsList = document.createElement("ul");
         for(let j = 0; j < product.materials.length; j++) {
             let material = product.materials[j];
@@ -373,22 +368,17 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         quantityInput.min = "1";
         quantityInput.value = "1";
         productInfoDiv.appendChild(quantityInput);
-
+        //build button
         let buildButton = document.createElement("button");
         buildButton.textContent = "Build"
+        //build button listener
         buildButton.addEventListener("click", function () {
-            build(i, quantityInput.value);
+            build(i, parseInt(quantityInput.value));
         });
         productInfoDiv.appendChild(buildButton);
 
-        // toggle product information visibility when button is clicked
-        productButton.addEventListener("click", function () {
-            productInfoDiv.classList.toggle("visible");
-        });
-
-        //add product button and information div to the secondary menu div
-        secondaryMenuDiv.appendChild(productButton);
-        secondaryMenuDiv.appendChild(productInfoDiv);
+        //add product container to the secondary menu div
+        secondaryMenuDiv.appendChild(productContainer);
     }
 
     //add the secondary menu div to the dashboard div
