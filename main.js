@@ -349,7 +349,7 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         productContainer.classList.add("secondaryMenuContainer");
 
         //display product name and required materials
-        let productName = document.createElement("h4");
+        let productName = document.createElement("p");
         productName.textContent = `${product.name}`;
         productContainer.appendChild(productName);
         //material list
@@ -357,7 +357,7 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         for(let j = 0; j < product.materials.length; j++) {
             let material = product.materials[j];
             let materialItem = document.createElement("li");
-            materialItem.textContent = material.name + " x" + material.quantity;
+            materialItem.textContent = material.name + " x" + material.qty;
             materialsList.appendChild(materialItem);
         }
         productContainer.appendChild(materialsList);
