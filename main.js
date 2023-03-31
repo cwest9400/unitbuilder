@@ -346,12 +346,12 @@ document.getElementById("actionBuild").addEventListener("click", function () {
 
         //create a container div for each product
         let productContainer = document.createElement("div");
-        productContainer.classList.add("secondaryMenu Container");
+        productContainer.classList.add("secondaryMenuContainer");
 
         //display product name and required materials
         let productName = document.createElement("h4");
         productName.textContent = `${product.name}`;
-        productInfoDiv.appendChild(productName);
+        productContainer.appendChild(productName);
         //material list
         let materialsList = document.createElement("ul");
         for(let j = 0; j < product.materials.length; j++) {
@@ -360,14 +360,14 @@ document.getElementById("actionBuild").addEventListener("click", function () {
             materialItem.textContent = material.name + " x" + material.quantity;
             materialsList.appendChild(materialItem);
         }
-        productInfoDiv.appendChild(materialsList);
+        productContainer.appendChild(materialsList);
         
         //create input field and build button
         let quantityInput = document.createElement("input");
         quantityInput.type = "number";
         quantityInput.min = "1";
         quantityInput.value = "1";
-        productInfoDiv.appendChild(quantityInput);
+        productContainer.appendChild(quantityInput);
         //build button
         let buildButton = document.createElement("button");
         buildButton.textContent = "Build"
@@ -375,7 +375,7 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         buildButton.addEventListener("click", function () {
             build(i, parseInt(quantityInput.value));
         });
-        productInfoDiv.appendChild(buildButton);
+        productContainer.appendChild(buildButton);
 
         //add product container to the secondary menu div
         secondaryMenuDiv.appendChild(productContainer);
