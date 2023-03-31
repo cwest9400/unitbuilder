@@ -381,13 +381,16 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         });
         productInfoDiv.appendChild(buildButton);
 
-        //eventlistener to the material button to call buy() function
-        productBuildButton.addEventListener("click", function () {
-            build(i, 1);
+        // toggle product information visibility when button is clicked
+        productButton.addEventListener("click", function () {
+            productInfoDiv.classList.toggle("visible");
         });
-        //add the material button to the secondary menu div
-        secondaryMenuDiv.appendChild(productBuildButton);
+
+        //add product button and information div to the secondary menu div
+        secondaryMenuDiv.appendChild(productButton);
+        secondaryMenuDiv.appendChild(productInfoDiv);
     }
+
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
     dashboardDiv.appendChild(secondaryMenuDiv);
@@ -401,10 +404,6 @@ document.getElementById("actionBuild").addEventListener("click", function () {
             }
         })
     }
-
-
-
-
 })
 
 //Sell Product button listeners
