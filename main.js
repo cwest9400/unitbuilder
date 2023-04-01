@@ -405,14 +405,14 @@ document.getElementById("actionSell").addEventListener("click", function () {
     for (let i = 0; i < fgi.length; i++) {
         let product = fgi[i];
 
+        //create wrapper div to hold productDiv and sellDiv
+        let sellContainerDiv = document.createElement("div");
+        sellContainerDiv.classList.add("sellContainerDiv");
+
         //create div to contain product name and price
         let productDiv = document.createElement("div");
         productDiv.classList.add("productDiv");
-
-        //create span for product name and price
-        let productSpan = document.createElement("span");
-        productSpan.classList.add("productSpan");
-        productSpan.textContent = `${product.product} - ${product.price}`;
+        productDiv.textContent = `${product.product} - $${product.price}`;
 
         //create div to contain input field and sell button
         let sellDiv = document.createElement("div");
@@ -421,7 +421,7 @@ document.getElementById("actionSell").addEventListener("click", function () {
         //create input field for quantity
         let qtyInput = document.createElement("input");
         qtyInput.setAttribute("type", "number");
-        qtyInput.setAttribute("placeholder", "qty");
+        qtyInput.setAttribute("placeholder", "");
         qtyInput.classList.add("qtyInput");
 
         //create sell button
