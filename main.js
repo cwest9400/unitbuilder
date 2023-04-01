@@ -424,9 +424,15 @@ document.getElementById("actionSell").addEventListener("click", function () {
         qtyInput.setAttribute("placeholder", "qty");
         qtyInput.classList.add("qtyInput");
 
+        //create sell button
+        let sellButton = document.createElement("button");
+        sellButton.classList.add("sellButton");
+        sellButton.textContent = "Sell";
+
         //eventlistener to the material button to call buy() function
-        productSellButton.addEventListener("click", function () {
-            sell(i, 1);
+        SellButton.addEventListener("click", function () {
+            sell(i, qtyInput.value);
+            qtyInput.value = "1";
         });
         //add the material button to the secondary menu div
         secondaryMenuDiv.appendChild(productSellButton);
