@@ -418,11 +418,11 @@ document.getElementById("actionSell").addEventListener("click", function () {
         let sellDiv = document.createElement("div");
         sellDiv.classList.add("sellDiv");
 
-        //create input field for quantity
-        let qtyInput = document.createElement("input");
-        qtyInput.setAttribute("type", "number");
-        qtyInput.setAttribute("placeholder", "");
-        qtyInput.classList.add("qtyInput");
+        // create input field for quantity
+        let quantityInput = document.createElement("input");
+        quantityInput.type = "number";
+        quantityInput.min = "1";
+        quantityInput.value = "1";
 
         //create sell button
         let sellButton = document.createElement("button");
