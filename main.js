@@ -407,10 +407,15 @@ document.getElementById("actionSell").addEventListener("click", function () {
 
         //create div to contain product name and price
         let productDiv = document.createElement("div");
-        productDiv.classList.add("productDiv")
-        let productSellButton = document.createElement("button");
-        productSellButton.classList.add("secondaryMenuButton")
-        productSellButton.textContent = `${product.product}`;
+        productDiv.classList.add("productDiv");
+
+        //create span for product name and price
+        let productSpan = document.createElement("span");
+        productSpan.classList.add("productSpan");
+        productSpan.textContent = `${product.product} - ${product.price}`;
+
+        //create div to contain input field and sell button
+
 
         //eventlistener to the material button to call buy() function
         productSellButton.addEventListener("click", function () {
