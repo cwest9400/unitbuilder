@@ -437,8 +437,11 @@ document.getElementById("actionSell").addEventListener("click", function () {
 
         //add the product name and price to the product div
         productDiv.appendChild(productSpan);
+        //add the input field and sell button to the sell div
+        sellDiv.appendChild(qtyInput);
+        sellDiv.appendChild(sellButton);
     }
-
+    
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
     dashboardDiv.appendChild(secondaryMenuDiv);
