@@ -102,10 +102,10 @@ function buy(materialIndex, num) {
         setTimeout(() => {
             document.querySelector('.messageZone').classList.add('fadeOut');
             setTimeout(() => {
-              document.querySelector('.messageZone').textContent = '';
-              document.querySelector('.messageZone').classList.remove('fadeOut');
+                document.querySelector('.messageZone').textContent = '';
+                document.querySelector('.messageZone').classList.remove('fadeOut');
             }, 500);
-          }, 500);
+        }, 500);
         return
     }
     //console.log(`previous ${material.name} qty: ${material.quantity}`)
@@ -117,18 +117,18 @@ function buy(materialIndex, num) {
     setTimeout(() => {
         document.querySelector('.messageZone').classList.add('fadeOut');
         setTimeout(() => {
-          document.querySelector('.messageZone').textContent = '';
-          document.querySelector('.messageZone').classList.remove('fadeOut');
+            document.querySelector('.messageZone').textContent = '';
+            document.querySelector('.messageZone').classList.remove('fadeOut');
         }, 500);
-      }, 500);
+    }, 500);
     //update the material qty on index page
     cashElement.textContent = ` ${cash.toString().padStart(6, '0')}`;
     let qtyElement = document.querySelector(`#${material.name}`);
     qtyElement.textContent = ` ${material.quantity.toString().padStart(3, '0')}`;
     qtyElement.classList.add('textFlash')
-            setTimeout(() => {
-                qtyElement.classList.remove('textFlash')
-            }, 200)
+    setTimeout(() => {
+        qtyElement.classList.remove('textFlash')
+    }, 200)
 }
 
 function build(bomIndex, num) {
@@ -148,10 +148,10 @@ function build(bomIndex, num) {
             setTimeout(() => {
                 document.querySelector('.messageZone').classList.add('fadeOut');
                 setTimeout(() => {
-                  document.querySelector('.messageZone').textContent = '';
-                  document.querySelector('.messageZone').classList.remove('fadeOut');
+                    document.querySelector('.messageZone').textContent = '';
+                    document.querySelector('.messageZone').classList.remove('fadeOut');
                 }, 500);
-              }, 500);
+            }, 500);
             // console.log(`Not enough ${material.name} to build ${bomToBuild.name} x${num}`)
             break;
         }
@@ -164,10 +164,10 @@ function build(bomIndex, num) {
         setTimeout(() => {
             document.querySelector('.messageZone').classList.add('fadeOut');
             setTimeout(() => {
-              document.querySelector('.messageZone').textContent = '';
-              document.querySelector('.messageZone').classList.remove('fadeOut');
+                document.querySelector('.messageZone').textContent = '';
+                document.querySelector('.messageZone').classList.remove('fadeOut');
             }, 500);
-          }, 500);
+        }, 500);
         // console.log(`Successfully built ${num} ${bomToBuild.name}(s)`)
 
         //update fgi array with the successfully built items
@@ -206,10 +206,10 @@ function sell(fgiIndex, num) {
         setTimeout(() => {
             document.querySelector('.messageZone').classList.add('fadeOut');
             setTimeout(() => {
-              document.querySelector('.messageZone').textContent = '';
-              document.querySelector('.messageZone').classList.remove('fadeOut');
+                document.querySelector('.messageZone').textContent = '';
+                document.querySelector('.messageZone').classList.remove('fadeOut');
             }, 500);
-          }, 500);
+        }, 500);
         // console.log(`Quantity on hand of ${productToSell.product} is insufficient for this order`)
 
         //if it exists and qty is greater than 0
@@ -225,10 +225,10 @@ function sell(fgiIndex, num) {
         setTimeout(() => {
             document.querySelector('.messageZone').classList.add('fadeOut');
             setTimeout(() => {
-              document.querySelector('.messageZone').textContent = '';
-              document.querySelector('.messageZone').classList.remove('fadeOut');
+                document.querySelector('.messageZone').textContent = '';
+                document.querySelector('.messageZone').classList.remove('fadeOut');
             }, 500);
-          }, 500);
+        }, 500);
         //update the product inventory qty on index page
         let qtyProductElement = document.querySelector(`#${productToSell.product}`);
         qtyProductElement.textContent = ` ${productToSell.qoh.toString().padStart(3, '0')}`
@@ -339,7 +339,7 @@ document.getElementById("actionBuild").addEventListener("click", function () {
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
     secondaryMenuDiv.classList.add("secondaryMenu");
-    
+
     //loop through materials
     for (let i = 0; i < bom.length; i++) {
         let product = bom[i];
@@ -354,14 +354,14 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         productContainer.appendChild(productName);
         //material list
         let materialsList = document.createElement("ul");
-        for(let j = 0; j < product.materials.length; j++) {
+        for (let j = 0; j < product.materials.length; j++) {
             let material = product.materials[j];
             let materialItem = document.createElement("li");
             materialItem.textContent = material.name + " x" + material.qty;
             materialsList.appendChild(materialItem);
         }
         productContainer.appendChild(materialsList);
-        
+
         //create input field and build button
         let quantityInput = document.createElement("input");
         quantityInput.type = "number";
@@ -429,19 +429,23 @@ document.getElementById("actionSell").addEventListener("click", function () {
         sellButton.classList.add("sellButton");
         sellButton.textContent = "Sell";
 
-        //eventlistener to the material button to call buy() function
-        SellButton.addEventListener("click", function () {
+        //eventlistener to the sell button to call sell() function
+        sellButton.addEventListener("click", function () {
             sell(i, qtyInput.value);
-            qtyInput.value = "1";
+            qtyInput.value = "";
         });
 
         //add the product name and price to the product div
         productDiv.appendChild(productSpan);
+        
         //add the input field and sell button to the sell div
         sellDiv.appendChild(qtyInput);
         sellDiv.appendChild(sellButton);
+
+        //add the product div and sell div to the secondary menu div
+        secondaryMenuDiv.appendChild(productDiv);
+        secondaryMenuDiv.appendChild(sellDiv);
     }
-    
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
     dashboardDiv.appendChild(secondaryMenuDiv);
