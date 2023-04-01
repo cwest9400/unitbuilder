@@ -438,10 +438,15 @@ document.getElementById("actionSell").addEventListener("click", function () {
         sellDiv.appendChild(quantityInput);
         sellDiv.appendChild(sellButton);
         productWrapperDiv.appendChild(sellDiv);
+        
+        //create button for each material
+        let productSellButton = document.createElement("button");
+        productSellButton.classList.add("secondaryMenuButton");
+        productSellButton.appendChild(productWrapperDiv);
 
-        //add the product div and sell div to the secondary menu div
-        secondaryMenuDiv.appendChild(productDiv);
-        secondaryMenuDiv.appendChild(sellDiv);
+        //add the material button to the secondary menu div
+        secondaryMenuDiv.appendChild(productSellButton);
+
     }
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
