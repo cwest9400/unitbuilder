@@ -426,21 +426,18 @@ document.getElementById("actionSell").addEventListener("click", function () {
 
         //create sell button
         let sellButton = document.createElement("button");
-        sellButton.classList.add("sellButton");
         sellButton.textContent = "Sell";
 
         //eventlistener to the sell button to call sell() function
         sellButton.addEventListener("click", function () {
             sell(i, qtyInput.value);
-            qtyInput.value = "";
         });
 
-        //add the product name and price to the product div
-        productDiv.appendChild(productSpan);
-        
-        //add the input field and sell button to the sell div
-        sellDiv.appendChild(qtyInput);
+        // add productDiv and sellDiv to productWrapperDiv
+        productWrapperDiv.appendChild(productDiv);
+        sellDiv.appendChild(quantityInput);
         sellDiv.appendChild(sellButton);
+        productWrapperDiv.appendChild(sellDiv);
 
         //add the product div and sell div to the secondary menu div
         secondaryMenuDiv.appendChild(productDiv);
