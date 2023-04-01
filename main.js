@@ -416,7 +416,13 @@ document.getElementById("actionSell").addEventListener("click", function () {
 
         //create div to contain input field and sell button
         let sellDiv = document.createElement("div");
-        sellDiv.classList.add("sellDiv")
+        sellDiv.classList.add("sellDiv");
+
+        //create input field for quantity
+        let qtyInput = document.createElement("input");
+        qtyInput.setAttribute("type", "number");
+        qtyInput.setAttribute("placeholder", "qty");
+        qtyInput.classList.add("qtyInput");
 
         //eventlistener to the material button to call buy() function
         productSellButton.addEventListener("click", function () {
