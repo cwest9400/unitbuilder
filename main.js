@@ -415,7 +415,8 @@ document.getElementById("actionSell").addEventListener("click", function () {
         productSpan.textContent = `${product.product} - ${product.price}`;
 
         //create div to contain input field and sell button
-
+        let sellDiv = document.createElement("div");
+        sellDiv.classList.add("sellDiv")
 
         //eventlistener to the material button to call buy() function
         productSellButton.addEventListener("click", function () {
