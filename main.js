@@ -400,12 +400,14 @@ document.getElementById("actionBuild").addEventListener("click", function () {
 document.getElementById("actionSell").addEventListener("click", function () {
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
-    //loop through materials
     secondaryMenuDiv.classList.add("secondaryMenu");
+    //loop through materials
     for (let i = 0; i < fgi.length; i++) {
         let product = fgi[i];
 
-        //create button for each material
+        //create div to contain product name and price
+        let productDiv = document.createElement("div");
+        productDiv.classList.add("productDiv")
         let productSellButton = document.createElement("button");
         productSellButton.classList.add("secondaryMenuButton")
         productSellButton.textContent = `${product.product}`;
