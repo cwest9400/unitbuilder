@@ -434,9 +434,11 @@ document.getElementById("actionSell").addEventListener("click", function () {
             sell(i, qtyInput.value);
             qtyInput.value = "1";
         });
-        //add the material button to the secondary menu div
-        secondaryMenuDiv.appendChild(productSellButton);
+
+        //add the product name and price to the product div
+        productDiv.appendChild(productSpan);
     }
+
     //add the secondary menu div to the dashboard div
     let dashboardDiv = document.querySelector(".dashboard");
     dashboardDiv.appendChild(secondaryMenuDiv);
