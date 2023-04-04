@@ -430,19 +430,19 @@ document.getElementById("actionSell").addEventListener("click", function () {
 
         //eventlistener to the sell button to call sell() function
         sellButton.addEventListener("click", function () {
-            sell(i, qtyInput.value);
+            sell(i, quantityInput.value);
         });
 
-        // add productDiv and sellDiv to productWrapperDiv
-        productWrapperDiv.appendChild(productDiv);
+        // add productDiv and sellDiv to sellContainerDiv
+        sellContainerDiv.appendChild(productDiv);
         sellDiv.appendChild(quantityInput);
         sellDiv.appendChild(sellButton);
-        productWrapperDiv.appendChild(sellDiv);
+        sellContainerDiv.appendChild(sellDiv);
         
         //create button for each material
         let productSellButton = document.createElement("button");
         productSellButton.classList.add("secondaryMenuButton");
-        productSellButton.appendChild(productWrapperDiv);
+        productSellButton.appendChild(sellContainerDiv);
 
         //add the material button to the secondary menu div
         secondaryMenuDiv.appendChild(productSellButton);

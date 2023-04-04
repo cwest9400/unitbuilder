@@ -17,8 +17,13 @@ body {
 p {
   margin: 0;
 }
+
 ul {
   margin: 0;
+}
+
+h2 {
+  text-align: center;
 }
 
 button:hover {
@@ -37,6 +42,7 @@ button:hover {
     background: linear-gradient(to bottom, #221dc1 0%, #120b60 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#221dc1', endColorstr='#120b60',GradientType=0 );
 }
+
 button {
   border: solid 1px #424542;
   height: max-content;
@@ -68,6 +74,7 @@ button {
   font-weight: normal;
 
 }
+
 input {
   width: 72px;
   height: max-content;
@@ -88,6 +95,7 @@ input {
   justify-content: flex-end;
   padding: 0 8px 8px 0;
 }
+
 .materialsContainer {
   display: flex;
   width: 100%;
@@ -130,6 +138,7 @@ input {
 .messageZone {
   display: flex;
 }
+
 .materialZone {
   display: flex;
   justify-content: space-between;
@@ -140,6 +149,7 @@ input {
   display: flex;
   justify-content: space-between;
 }
+
 .actionContainer {
   gap: 8px;
   display: flex;
@@ -180,10 +190,6 @@ input {
   
 }
 
-.inventoryContainer {
-
-}
-
 .inventoryList {
   padding: 8px;
   margin-top: 8px;
@@ -217,14 +223,18 @@ input {
   font-weight: normal;
   
 }
+
 .dashboard {
-    
+    min-width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
+    
 }
+
 .secondaryMenu {
+  width: 100%;
     padding: 8px;
   /* margin-top: 8px; */
   display: flex;
@@ -256,7 +266,9 @@ input {
   font-size: 20px;
   font-weight: normal;
 }
+
 .secondaryMenuContainer {
+  
   padding: 8px;
   /* margin-top: 8px; */
   display: flex;
@@ -367,6 +379,17 @@ text-align: left;
 .nameAndPriceDiv {
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
+}
+
+.sellContainerDiv {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sellDiv {
+  display: flex;
   gap: 8px;
 }
 
