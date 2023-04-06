@@ -350,6 +350,7 @@ document.getElementById("actionBuild").addEventListener("click", function () {
 
         //create a div to hold the product name and material list
         let productDiv = document.createElement("div");
+        productDiv.classList.add("productDiv");
 
         //display product name and required materials
         let productName = document.createElement("p");
@@ -368,6 +369,7 @@ document.getElementById("actionBuild").addEventListener("click", function () {
 
         //create div to hold input and build button
         let buildDiv = document.createElement("div");
+        buildDiv.classList.add("buildDiv");
 
         //create input field and build button
         let quantityInput = document.createElement("input");

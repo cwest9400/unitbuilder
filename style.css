@@ -403,5 +403,15 @@ text-align: left;
   transition: opacity 1s ease-out;
 }
 
+.productDiv {
+  display: flex;
+}
+
+.buildDiv {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 
 
