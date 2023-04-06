@@ -254,7 +254,7 @@ screwElement.textContent = ` ${materials[3].quantity.toString().padStart(3, '0')
 coastersetElement.textContent = ` ${fgi[0].qoh.toString().padStart(3, '0')}`
 coffeetableElement.textContent = ` ${fgi[1].qoh.toString().padStart(3, '0')}`
 
-//buy material button listeners
+//BUY MATERIAL
 document.getElementById("actionBuy").addEventListener("click", function () {
 
     //create secondary menu div
@@ -334,7 +334,7 @@ document.getElementById("actionBuy").addEventListener("click", function () {
     }
 })
 
-//Build Product button listeners
+//BUILD PRODUCT
 document.getElementById("actionBuild").addEventListener("click", function () {
     //create secondary menu div
     let secondaryMenuDiv = document.createElement("div");
@@ -348,10 +348,13 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         let productContainer = document.createElement("div");
         productContainer.classList.add("secondaryMenuContainer");
 
+        //create a div to hold the product name and material list
+        let productDiv = document.createElement("div");
+
         //display product name and required materials
         let productName = document.createElement("p");
         productName.textContent = `${product.name}`;
-        productContainer.appendChild(productName);
+        productDiv.appendChild(productName);
         //material list
         let materialsList = document.createElement("ul");
         for (let j = 0; j < product.materials.length; j++) {
