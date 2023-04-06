@@ -366,12 +366,15 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         productDiv.appendChild(materialsList);
         productContainer.appendChild(productDiv);
 
+        //create div to hold input and build button
+        let buildDiv = document.createElement("div");
+
         //create input field and build button
         let quantityInput = document.createElement("input");
         quantityInput.type = "number";
         quantityInput.min = "1";
         quantityInput.value = "1";
-        productContainer.appendChild(quantityInput);
+        buildDiv.appendChild(quantityInput);
         //build button
         let buildButton = document.createElement("button");
         buildButton.textContent = "Build"
@@ -379,7 +382,8 @@ document.getElementById("actionBuild").addEventListener("click", function () {
         buildButton.addEventListener("click", function () {
             build(i, parseInt(quantityInput.value));
         });
-        productContainer.appendChild(buildButton);
+        buildDiv.appendChild(buildButton);
+        productContainer.appendChild(buildDiv);
 
         //add product container to the secondary menu div
         secondaryMenuDiv.appendChild(productContainer);
