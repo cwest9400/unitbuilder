@@ -363,8 +363,8 @@ document.getElementById("actionBuild").addEventListener("click", function () {
             materialItem.textContent = material.name + " x" + material.qty;
             materialsList.appendChild(materialItem);
         }
-        productDiv.appendChild(productName);
-        productContainer.appendChild(materialsList);
+        productDiv.appendChild(materialsList);
+        productContainer.appendChild(productDiv);
 
         //create input field and build button
         let quantityInput = document.createElement("input");
