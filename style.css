@@ -413,5 +413,28 @@ text-align: left;
   gap: 8px;
 }
 
+/* mobile resize */
+
+@media only all and (max-width: 684px) {
+  [class="materialsContainer"] {
+    gap: 16px;
+    height: 48px;
+    font-size: 12px;
+
+  }
+  /* [class="birthday-card"] {
+    width: 100%;
+  }
+  [class="date-card-date"] {
+    width: 100%;
+  }
+  [class="date-card-name"] {
+    width: 100%;
+  }
+  [class="header-top-right"] {
+    padding-right: 10% ;
+} */
+}
+
 
 
