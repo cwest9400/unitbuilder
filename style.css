@@ -419,21 +419,24 @@ text-align: left;
   [class="materialsContainer"] {
     gap: 16px;
     height: 48px;
-    font-size: 12px;
+    font-size: 16px;
+    justify-content: center;
 
   }
-  /* [class="birthday-card"] {
-    width: 100%;
+  [class="section2"] {
+   flex-direction: column;
   }
-  [class="date-card-date"] {
-    width: 100%;
+  [class="actions"] {
+    text-align: center;
+    width: 75%;
+    
   }
-  [class="date-card-name"] {
-    width: 100%;
+  [class="actionContainer"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  [class="header-top-right"] {
-    padding-right: 10% ;
-} */
+ 
 }
 
 
