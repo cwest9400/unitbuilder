@@ -13,6 +13,7 @@ body {
   font-weight: normal;
 
   background-color: #212021;
+  overflow-y: scroll;
 }
 p {
   margin: 0;
@@ -415,16 +416,17 @@ text-align: left;
 
 /* mobile resize */
 
-@media only all and (max-width: 684px) {
+@media only all and (max-width: 949px) {
+  
   [class="materialsContainer"] {
     gap: 16px;
     height: 48px;
     font-size: 16px;
     justify-content: center;
-
+    
   }
   [class="section2"] {
-   flex-direction: column;
+    flex-direction: column;
   }
   [class="actions"] {
     text-align: center;
@@ -435,8 +437,10 @@ text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
- 
+  
+  
 }
 
 
