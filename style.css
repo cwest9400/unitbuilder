@@ -138,6 +138,7 @@ input {
 
 .messageZone {
   display: flex;
+  
 }
 
 .materialZone {
@@ -456,8 +457,12 @@ text-align: left;
   [class="materialsContainer"] {
     flex-direction: column;
     justify-content: end;
-    height: 60px;
+    height: 72px;
 
+  }
+  [class="messageZone"] {
+    justify-content: end;
+    
   }
   
 
