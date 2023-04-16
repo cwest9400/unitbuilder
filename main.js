@@ -284,7 +284,7 @@ document.getElementById("actionBuy").addEventListener("click", function () {
 
         //create span for material price
         let priceSpan = document.createElement("span");
-        priceSpan.textContent = ` - $${material.price} per ${material.uom}`;
+        priceSpan.textContent = ` - $${material.price}`;
         priceSpan.classList.add("materialPrice");
 
         //append name and price to nameAndPriceDiv
