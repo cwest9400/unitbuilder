@@ -453,6 +453,14 @@ text-align: left;
   [class="buyButton"] {
     font-size: 16px;
   }
+  [class="materialsContainer"] {
+    flex-direction: column;
+    justify-content: end;
+    height: 60px;
+
+  }
+  
+
 
 
   
