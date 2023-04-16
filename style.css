@@ -9,7 +9,7 @@ body {
   color: #eff1ff;
   text-shadow: 2px 2px #212421, 1px 1px #212021;
   font-family: Verdana, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: normal;
 
   background-color: #212021;
@@ -421,7 +421,7 @@ text-align: left;
   [class="materialsContainer"] {
     gap: 16px;
     height: 48px;
-    font-size: 16px;
+    font-size: 14px;
     justify-content: center;
     
   }
@@ -439,6 +439,17 @@ text-align: left;
     justify-content: center;
     align-items: center;
   }
+  [class="secondaryMenuContainer"] {
+    flex-direction: column;
+    gap: 18px;
+  }
+  [element="ul"] {
+    padding-left: 80px;
+  }
+  [element=body] {
+    font-size: 14px;
+  }
+
   
   
 }
