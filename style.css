@@ -443,12 +443,17 @@ text-align: left;
     flex-direction: column;
     gap: 18px;
   }
-  [element="ul"] {
-    padding-left: 80px;
+  [class="secondaryMenu"] {
+    font-size: 16px;
   }
-  [element=body] {
-    font-size: 14px;
+  [class="qtyInput"] {
+    font-size: 16px;
+    padding: 1px 2px;
   }
+  [class="buyButton"] {
+    font-size: 16px;
+  }
+
 
   
   
