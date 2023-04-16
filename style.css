@@ -457,11 +457,19 @@ text-align: left;
   [class="materialsContainer"] {
     flex-direction: column;
     justify-content: end;
-    height: 72px;
+    min-height: 100%;
 
   }
   [class="messageZone"] {
-    justify-content: end;
+  margin: 0;
+    
+  }
+  [class="materialZone"] {
+  padding-bottom: 8px;
+    
+  }
+  [class="resources"] {
+  padding-bottom: 48px;
     
   }
   

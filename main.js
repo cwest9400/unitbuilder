@@ -208,8 +208,8 @@ function sell(fgiIndex, num) {
             setTimeout(() => {
                 document.querySelector('.messageZone').textContent = '';
                 document.querySelector('.messageZone').classList.remove('fadeOut');
-            }, 500);
-        }, 500);
+            }, 1000);
+        }, 1000);
         // console.log(`Quantity on hand of ${productToSell.product} is insufficient for this order`)
 
         //if it exists and qty is greater than 0
